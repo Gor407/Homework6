@@ -18,13 +18,14 @@
 	 
 	        //Exersize 2
 	 function missingNum(arr){
-		 for(let i = 1 ;i <= arr.length;i++){
+		 let res = arr.length;
 			 arr.sort(function(a,b){return a-b});
-			 if(!arr.includes(i))  arr.push(i);
+			 for(let i = arr[0];i <= arr.length;i++){
+			if(!arr.includes(i)) {arr.push(i)};
 		 }
-		 console.log(arr);
+		return arr.length - res;
 	 }
-	 missingNum([1,5,7,9,12,45]);       
+	 missingNum([5,12,9,1,26]);       
 
 	 
 	 
@@ -32,12 +33,10 @@
 	 
 	   //Exersize 2.1
 	  function missingNum(arr){
-		 for(let i = 0 ;i < arr.length;i++){
 			 arr.sort(function(a,b){return a-b});
-		 }
-		 console.log((arr[arr.length - 1] - arr[0])- arr.length);
+		 return (arr[arr.length - 1] - arr[0])- arr.length;
 	 } 
-	 missingNum([1,5,7,9]);         
+	 missingNum([1,5,7,9]);       
 	 
 	 
 
@@ -49,9 +48,9 @@
     let arr = str.split(' ');
 	let res = [];
   for (let i = 0; i < arr.length; i++) {
-	  res.push(arr[i].charAt(0));
+	  res.push(arr[i].charAt(0).toUpperCase());
   }
-  console.log(res.join(' '));
+     return res.join('');
 }     
 	 acronym('Have a good night');       
 	 
@@ -63,9 +62,14 @@
 	 function sumNum(str,n){
 		 str.split('');
 		 let res = [];
-		 for(let i = 0; i <= n;i++){
-			if(str.length >= n){ res.push(str.substr([i],n)) };
+		 for(let i = 0; i < str.length;i++){
+			if(n >= str.length){
+				return str;
+				}else{
+				res.push(str.substr([i],n));
+				};
+			    if(res[i].length < n){break;}
 	    }
-		 console.log(res);	 
+		 return res.slice(0,-1);	 
 	 }
-	 sumNum("324545",3);         
+	 sumNum("354346576",3);        
